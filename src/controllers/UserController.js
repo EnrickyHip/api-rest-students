@@ -12,6 +12,7 @@ class UserController {
 
   async index(request, response) {
     try {
+      console.log(request.userId, request.userEmail);
       const users = await User.findAll();
       return response.json(users);
     } catch (error) {
