@@ -1,8 +1,8 @@
 import { Router } from "express";
-import home from "../controllers/homeController.js";
+import HomeController from "../controllers/HomeController.js";
 
 const routes = new Router();
 
-routes.get("/", home.index);
+routes.get("/", HomeController.index);
 
 export default routes;
