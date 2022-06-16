@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
-export default (request, response, next) => {
+export default async (request, response, next) => {
   const { authorization } = request.headers;
 
   if (!authorization) {
@@ -12,8 +13,20 @@ export default (request, response, next) => {
   const [, token] = authorization.split(" ");
 
   try {
-    const data = jwt.verify(token, process.env.TOKEN_SECRET);
-    const { email, id } = data;
+    const { email, id } = jwt.verify(token, process.env.TOKEN_SECRET);
+
+    const user = await User.findOne({
+      where: {
+        id,
+        email,
+      },
+    });
+
+    if (!user) {
+      return response.status(401).json({
+        errors: ["invalid user"],
+      });
+    }
 
     request.userId = id;
     request.userEmail = email;
