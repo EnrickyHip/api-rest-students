@@ -5,8 +5,8 @@ import loginRequired from "../middlewares/loginRequired.js";
 const routes = new Router();
 
 //! remova esses dois posteriormente. serão usados apenas para testes.
-routes.get("/", UserController.index);
-routes.get("/:id", UserController.show);
+// routes.get("/", UserController.index);
+// routes.get("/:id", UserController.show);
 
 routes.post("/", UserController.create);
 routes.put("/", loginRequired, UserController.update);

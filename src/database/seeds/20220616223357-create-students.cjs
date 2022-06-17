@@ -1,28 +1,33 @@
-const bcryptjs = require("bcryptjs");
-
 module.exports = {
   async up(queryInterface) {
     await queryInterface.bulkInsert(
-      "users",
+      "students",
       [
         {
-          name: "Enricky Hipólito",
+          name: "Enricky",
+          last_name: "Hipólito",
           email: "enricky@gmail.com",
-          password_hash: await bcryptjs.hash("123456", 8),
+          age: 18,
+          height: 1.75,
+          weight: 65,
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          name: "Enricky Hipólito 2",
+          name: "Enricky",
+          last_name: "Hipólito 2",
           email: "enricky2@gmail.com",
-          password_hash: await bcryptjs.hash("123456", 8),
+          age: 20,
+          height: 1.8,
+          weight: 70.0,
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          name: "Enricky Hipólito 3",
+          name: "Enricky",
+          last_name: "Hipólito3",
           email: "enricky3@gmail.com",
-          password_hash: await bcryptjs.hash("123456", 8),
+          age: 34,
           created_at: new Date(),
           updated_at: new Date(),
         },
