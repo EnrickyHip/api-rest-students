@@ -2,10 +2,12 @@
   "name": "api-rest",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "dev": "webpack -w",
-    "start": "nodemon server.js --ignore public --ignore frontend"
+    "start": "nodemon src/server.js --ignore public --ignore frontend",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "dist": "node dist/server.js"
   },
   "keywords": [],
   "author": "",

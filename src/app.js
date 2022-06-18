@@ -3,13 +3,13 @@ import { resolve } from "path";
 
 import express from "express";
 
-import usersRoutes from "./src/routes/user.routes.js";
-import homeRoutes from "./src/routes/home.routes.js";
-import tokenRoutes from "./src/routes/token.routes.js";
-import studentRoutes from "./src/routes/student.routes.js";
-import photoRoutes from "./src/routes/photo.routes.js";
+import usersRoutes from "./routes/user.routes.js";
+import homeRoutes from "./routes/home.routes.js";
+import tokenRoutes from "./routes/token.routes.js";
+import studentRoutes from "./routes/student.routes.js";
+import photoRoutes from "./routes/photo.routes.js";
 
-import "./src/database/index.js";
+import "./database/index.js";
 
 dotenv.config();
 
@@ -23,7 +23,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__dirname, "uploads")));
+    this.app.use(express.static(resolve(__dirname, "..", "uploads")));
   }
 
   routes() {

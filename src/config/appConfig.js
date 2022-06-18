@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 export default {
-  url: "http://localhost:3000",
+  url: process.env.APP_URL,
 };
