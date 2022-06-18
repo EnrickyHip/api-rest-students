@@ -23,7 +23,6 @@ class UserController {
       await user.update(request.body);
       return response.json(user);
     } catch (error) {
-      console.log(error);
       return response.status(400).json({ errors: error.errors.map((error) => error.message) });
     }
   }

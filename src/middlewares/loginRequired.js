@@ -22,8 +22,6 @@ export default async (request, response, next) => {
       },
     });
 
-    console.log(user);
-
     if (!user) {
       return response.status(401).json({
         errors: ["invalid user"],
