@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "dev": "webpack -w",
     "start": "nodemon server.js --ignore public --ignore frontend"
@@ -18,7 +17,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "sucrase": "^3.21.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
