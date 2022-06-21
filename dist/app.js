@@ -13,18 +13,6 @@ var _photoroutesjs = require('./routes/photo.routes.js'); var _photoroutesjs2 = 
 
 require('./database/index.js');
 
-const whiteList = ["http://localhost:3000"];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whiteList.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
-
 _dotenv2.default.config();
 
 class App {
@@ -35,7 +23,7 @@ class App {
   }
 
   middlewares() {
-    this.app.use(_cors2.default.call(void 0, corsOptions));
+    this.app.use(_cors2.default.call(void 0, ));
     this.app.use(_helmet2.default.call(void 0, ));
     this.app.use(_express2.default.urlencoded({ extended: true }));
     this.app.use(_express2.default.json());
