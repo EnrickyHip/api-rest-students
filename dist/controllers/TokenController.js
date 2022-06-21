@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import jwt from "jsonwebtoken";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Userjs = require('../models/User.js'); var _Userjs2 = _interopRequireDefault(_Userjs);
+var _jsonwebtoken = require('jsonwebtoken'); var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
 
 class TokenController {
   async create(request, response) {
@@ -12,7 +12,7 @@ class TokenController {
         });
       }
 
-      const user = await User.findOne({ where: { email } });
+      const user = await _Userjs2.default.findOne({ where: { email } });
 
       if (!user) {
         return response.status(401).json({
@@ -27,7 +27,7 @@ class TokenController {
       }
 
       const { id, name } = user;
-      const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+      const token = _jsonwebtoken2.default.sign({ id, email }, process.env.TOKEN_SECRET, {
         expiresIn: process.env.TOKEN_EXPIRATION,
       });
 
@@ -38,4 +38,4 @@ class TokenController {
   }
 }
 
-export default new TokenController();
+exports. default = new TokenController();

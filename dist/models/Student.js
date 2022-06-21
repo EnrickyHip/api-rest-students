@@ -1,11 +1,11 @@
-import Sequelize, { Model } from "sequelize";
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
 
-export default class Student extends Model {
+ class Student extends _sequelize.Model {
   static init(sequelize) {
     super.init(
       {
         name: {
-          type: Sequelize.STRING,
+          type: _sequelize2.default.STRING,
           defaultValue: "",
           validate: {
             len: {
@@ -16,7 +16,7 @@ export default class Student extends Model {
         },
 
         lastName: {
-          type: Sequelize.STRING,
+          type: _sequelize2.default.STRING,
           defaultValue: "",
           validate: {
             len: {
@@ -27,7 +27,7 @@ export default class Student extends Model {
         },
 
         email: {
-          type: Sequelize.STRING,
+          type: _sequelize2.default.STRING,
           defaultValue: "",
           unique: {
             msg: "email already exists",
@@ -40,7 +40,7 @@ export default class Student extends Model {
         },
 
         age: {
-          type: Sequelize.FLOAT,
+          type: _sequelize2.default.FLOAT,
           defaultValue: "",
           validate: {
             isInt: {
@@ -50,7 +50,7 @@ export default class Student extends Model {
         },
 
         weight: {
-          type: Sequelize.FLOAT,
+          type: _sequelize2.default.FLOAT,
           validate: {
             isFloat: {
               msg: "invalid weight",
@@ -59,7 +59,7 @@ export default class Student extends Model {
         },
 
         height: {
-          type: Sequelize.FLOAT,
+          type: _sequelize2.default.FLOAT,
           validate: {
             isFloat: {
               msg: "invalid height",
@@ -77,4 +77,4 @@ export default class Student extends Model {
   static associate(models) {
     this.hasMany(models.Photo, { foreignKey: "student_id" });
   }
-}
+} exports.default = Student;
