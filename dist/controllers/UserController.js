@@ -3,8 +3,9 @@
 class UserController {
   async create(request, response) {
     try {
-      const user = await _Userjs2.default.create(request.body, { attributes: ["id", "name", "email"] });
-      return response.json(user);
+      const user = await _Userjs2.default.create(request.body);
+      const { id, name, email } = user;
+      return response.json({ id, name, email });
     } catch (error) {
       return response.status(400).json({ errors: error.errors.map((error) => error.message) });
     }

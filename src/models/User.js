@@ -11,7 +11,7 @@ export default class User extends Model {
           validate: {
             len: {
               args: [3, 50],
-              msg: "name should be between 3 and 40 caracters",
+              msg: "name should be between 3 and 50 caracters",
             },
           },
         },
@@ -41,7 +41,7 @@ export default class User extends Model {
           validate: {
             len: {
               args: [6, 50],
-              msg: "password should be between 6 and 40 caracters",
+              msg: "password should be between 6 and 50 caracters",
             },
           },
         },
